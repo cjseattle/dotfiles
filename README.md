@@ -1,56 +1,49 @@
 <p align="center"><img src="art/banner-2x.png"></p>
 
-## Introduction
+## What are dotfiles?
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
+Taking their name from the so-called hidden files or "dot files" on Linux/Mac that are preceded with a '.', e.g. `.bash_profile`, "dotfiles" is a loose methodology for storing the things that are important to you about your computer's setup, with the goal of making it easy to get set up and running the way you are used to when/if you have to change/upgrade/replace your computer (or change jobs, or want to clone your work setup to your private machine, etc).
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
-📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
-💡 - [Learn how to build your own dotfiles](https://github.com/driesvints/dotfiles#your-own-dotfiles)
+Many words and repositories have been written and created which will provide a better high-level intro than I can. Here are two:
 
-## A Fresh macOS Setup
+[Getting started with dotfiles, Dries Vints](https://driesvints.com/blog/getting-started-with-dotfiles)  
+[Getting started with dotfiles (Medium), Lars Kappert](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)  
 
-These instructions are for when you've already set up your dotfiles. If you want to get started with your own dotfiles you can [find instructions below](#your-own-dotfiles).
+Hat tip to Eric Baer, wherever he is, for introducing me to the concept. This repo is forked from [Dries Vints's dotfiles](https://github.com/driesvints/dotfiles).
 
-### Before you re-install
+Everyone's dotfiles are different. I'm a luddite, so mine are pretty simple. For me, the dotfiles almost serve more as a reminder of what I like to use on my system, as they do for explicitly auto-configuring a new machine. But a little auto-setup can't hurt, right?
 
-First, go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
+## Code Editor
 
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
-
-### Installing macOS cleanly
-
-After going through our checklist above and making sure you backed everything up, we're going to cleanly install macOS with the latest release. Follow [this article](https://www.imore.com/how-do-clean-install-macos) to cleanly install the latest macOS version.
+A lot of my steps assume you use Visual Studio Code as your IDE (integrated development environment), for example for your default Git editor and viewing your shell dotfiles (`.zshrc` or `.bash_profile`). If you don't, you can search these dotfiles for occurrences of `code` or `VS Code` and substitute your own IDE shorthand as needed.
 
 ### Setting up your Mac
 
-If you did all of the above you may now follow these install instructions to setup a new Mac.
+Presuming your new Mac is basically up to date and ready to go, start here. If you want to start from scratch (wipe your hard drive, etc), [consider these steps first](https://github.com/driesvints/dotfiles#a-fresh-macos-setup).
 
-1. Update macOS to the latest version with the App Store
-2. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+1. Install any available updates to macOS from the App Store
+1. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
    ```zsh
-   curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
+   curl https://raw.githubusercontent.com/cjseattle/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
    ```
 
-3. Clone this repo to `~/.dotfiles` with:
+1. Update your Github.com account and any Enterprise Github accounts [with your new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). 
+
+1. Clone this repo to `~/.dotfiles` with:
 
     ```zsh
-    git clone git@github.com:driesvints/dotfiles.git ~/.dotfiles
+    git clone git@github.com:cjseattle/dotfiles.git ~/.dotfiles
     ```
 
-4. Run the installation with:
+1. Run the installation with:
 
     ```zsh
     ~/.dotfiles/fresh.sh
     ```
 
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+1. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
+1. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
 
@@ -62,7 +55,7 @@ Your Mac is now ready to use!
 
 If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.
 
-Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
+Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find many more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
 
 Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to install for your machine. Use [their search page](https://caskroom.github.io/search) to check if the app you want to install is available.
 
