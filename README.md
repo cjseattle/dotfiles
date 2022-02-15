@@ -1,6 +1,4 @@
-<p align="center"><img src="art/banner-2x.png"></p>
-
-## What are dotfiles?
+# What are dotfiles?
 
 Taking their name from the so-called hidden files or "dot files" on Linux/Mac that are preceded with a '.', e.g. `.bash_profile`, "dotfiles" is a loose methodology for storing the things that are important to you about your computer's setup, with the goal of making it easy to get set up and running the way you are used to when/if you have to change/upgrade/replace your computer (or change jobs, or want to clone your work setup to your private machine, etc).
 
