@@ -1,13 +1,11 @@
 # What are dotfiles?
 
-Taking their name from the so-called hidden files or "dot files" on Linux/Mac that are preceded with a '.', e.g. `.bash_profile`, "dotfiles" is a loose methodology for storing the things that are important to you about your computer's setup, with the goal of making it easy to get set up and running the way you are used to when/if you have to change/upgrade/replace your computer (or change jobs, or want to clone your work setup to your private machine, etc).
+Taking their name from the so-called hidden files or "dot files" on Linux/Mac that are preceded with a `.`, e.g. `.bash_profile`, "dotfiles" is a loose methodology for storing the things that are important to you about your computer's setup, with the goal of making it easy to get set up and running the way you are used to when/if you have to change/upgrade/replace your computer (or change jobs, or want to clone your work setup to your private machine, etc).
 
 Many words and repositories have been written and created which will provide a better high-level intro than I can. Here are two:
 
 [Getting started with dotfiles, Dries Vints](https://driesvints.com/blog/getting-started-with-dotfiles)  
 [Getting started with dotfiles (Medium), Lars Kappert](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)  
-
-Hat tip to Eric Baer, wherever he is, for introducing me to the concept. This repo is forked from [Dries Vints's dotfiles](https://github.com/driesvints/dotfiles).
 
 Everyone's dotfiles are different. I'm a luddite, so mine are pretty simple. For me, the dotfiles almost serve more as a reminder of what I like to use on my system, as they do for explicitly auto-configuring a new machine. But a little auto-setup can't hurt, right?
 
@@ -70,8 +68,6 @@ You can tweak the shell theme, the Oh My Zsh settings and much more. Go through 
 
 Enjoy your own Dotfiles!
 
-## Thanks To...
+## Thanks
 
-I first got the idea for starting this project by visiting the [GitHub does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. Thanks to [@subnixr](https://github.com/subnixr) for [his awesome Zsh theme](https://github.com/subnixr/minimal)! Thanks to [Caneco](https://twitter.com/caneco) for the header in this readme. And lastly, I'd like to thank [Emma Fabre](https://twitter.com/anahkiasen) for [her excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile) and [Mackup](https://github.com/lra/mackup).
-
-In general, I'd like to thank every single one who open-sources their dotfiles for their effort to contribute something to the open-source community.
+Hat tip to Eric Baer, wherever he is, for introducing me to the concept. This repo is forked from [Dries Vints's dotfiles](https://github.com/driesvints/dotfiles).
