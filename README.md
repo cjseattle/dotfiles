@@ -11,7 +11,15 @@ Everyone's dotfiles are different. I'm a luddite, so mine are pretty simple. For
 
 ## Code Editor
 
-A lot of my steps assume you use Visual Studio Code as your IDE (integrated development environment), for example for your default Git editor and viewing your shell dotfiles (`.zshrc` or `.bash_profile`). If you don't, you can search these dotfiles for occurrences of `code` or `VS Code` and substitute your own IDE shorthand as needed.
+Several of my steps assume you use Visual Studio Code as your IDE (integrated development environment), for example for your default Git editor and viewing your shell dotfiles (`.zshrc` or `.bash_profile`). If you don't use VS Code, you can search these dotfiles for occurrences of `code` or `VS Code` and customize accordingly. 
+
+For VS Code, note that there is a [setting in the app itself](https://code.visualstudio.com/docs/editor/settings-sync) to sync your editor settings to the cloud; this is a great supplement to the dotfiles approach. 
+
+## Document backup
+
+Dotfiles are primarily concerned with settings and config files for your OS and applications. However, you most likely want to recreate your documents as well in the event of switching to a new computer or having a fatal crash on your old one. Personally I use Dropbox to sync a handful of key folders, so I can re-create these easily on my new computer. Alternatively, if your old computer is still functioning, you can Airdrop (macOS) or otherwise share the files from your old computer to your new one. 
+
+My dotfiles will attempt to install the Dropbox application on your new computer via Homebrew. If this happens to work, you will of course still need to sign into Dropbox on your new computer to be able to sync the files. 
 
 ### Setting up your Mac
 
@@ -57,7 +65,7 @@ Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to inst
 
 Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
+When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to Dropbox so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than Dropbox, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
 
 ```zsh
 brew install mackup
