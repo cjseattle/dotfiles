@@ -21,7 +21,7 @@ Dotfiles are primarily concerned with settings and config files for your OS and 
 
 My dotfiles will attempt to install the Dropbox application on your new computer via Homebrew. If this happens to work, you will of course still need to sign into Dropbox on your new computer to be able to sync the files. 
 
-### Setting up your Mac
+## Setting up your Mac
 
 Presuming your new Mac is basically up to date and ready to go, start here. If you want to start from scratch (wipe your hard drive, etc), [consider these steps first](https://github.com/driesvints/dotfiles#a-fresh-macos-setup).
 
