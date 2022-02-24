@@ -3,7 +3,7 @@ alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
 # sp is short for "source profile"
 alias sp="source $HOME/.zshrc"
 # assumes you want to open the file with VS Code
-alias openzsh="code $HOME/zshrc"
+alias openzsh="code $HOME/.zshrc"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias ll="/opt/homebrew/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
@@ -11,6 +11,8 @@ alias c="clear"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
+alias ..="cd .."
+alias ...="cd ../.."
 
 # JS
 alias blowaway="rm -rf node_modules"

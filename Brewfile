@@ -9,7 +9,7 @@ brew 'mas' # Mac App Store manager
 
 # Image optimization
 # brew 'jpegoptim'
-#brew 'optipng'
+# brew 'optipng'
 # brew 'pngquant'
 # brew 'svgo'
 # brew 'gifsicle'
@@ -21,6 +21,7 @@ brew 'redis'
 cask '1password'
 cask 'charles'
 cask 'drawio'
+cask 'dropbox'
 cask 'figma'
 cask 'firefox'
 cask 'github'

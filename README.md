@@ -15,11 +15,13 @@ Several of my steps assume you use Visual Studio Code as your IDE (integrated de
 
 For VS Code, note that there is a [setting in the app itself](https://code.visualstudio.com/docs/editor/settings-sync) to sync your editor settings to the cloud; this is a great supplement to the dotfiles approach. 
 
+Note that VS Code will be installed by the Homebrew bundlefile, described below (unless you modify the file to NOT install it, of course 😉).
+
 ## Document backup
 
-Dotfiles are primarily concerned with settings and config files for your OS and applications. However, you most likely want to recreate your documents as well in the event of switching to a new computer or having a fatal crash on your old one. Personally I use Dropbox to sync a handful of key folders, so I can re-create these easily on my new computer. Alternatively, if your old computer is still functioning, you can Airdrop (macOS) or otherwise share the files from your old computer to your new one. 
+Dotfiles are primarily concerned with settings and config files for your OS and applications. However, you most likely want to recreate your documents as well. Personally I use Dropbox to sync a handful of key folders, so I can re-create these easily on my new computer. Alternatively, if your old computer is still functioning, you can Airdrop (macOS) or otherwise share the files from your old computer to your new one. 
 
-My dotfiles will attempt to install the Dropbox application on your new computer via Homebrew. If this happens to work, you will of course still need to sign into Dropbox on your new computer to be able to sync the files. 
+My dotfiles will attempt to install the Dropbox application on your new computer via Homebrew. If this happens to work, you will still need to sign into Dropbox on your new computer to be able to sync the files.
 
 ## Setting up your Mac
 
@@ -34,24 +36,60 @@ Presuming your new Mac is basically up to date and ready to go, start here. If y
 
 1. Update your Github.com account and any Enterprise Github accounts [with your new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). 
 
-1. Clone this repo to `~/.dotfiles` with:
+1. **ZSH** zsh is now the default shell for Mac, if you want to make sure you have it installed, run `zsh --version`.  If you want to use [oh my zsh](https://ohmyz.sh/), install it with the script below. Note that it will move any pre-existing `.zshrc` file to `~/.zshrc.pre-oh-my-zsh`, so you can copy over any necessary configuration after installing. The install script for these dotfiles (described below) will wind up deleting the `.zshrc` that the default install creates, and symlinking `~/.zshrc` to the `.zshrc` file in the repo. This keeps the `.zshrc` in the repo as your source of truth -- as long as you push this to your own dotfiles repo, you'll be preserving all your hard work for the next time you need to install the dotfiles.
+
+    ```zsh
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+    ```
+1. Clone this repo to `~/.dotfiles` with the script below. Note that installing it to your home folder is important in order to keep the symlinks it will create working.
 
     ```zsh
     git clone git@github.com:cjseattle/dotfiles.git ~/.dotfiles
     ```
+> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
 
-1. Run the installation with:
+
+1. The installer script for these dotfiles is the [fresh.sh](./fresh.sh) script. It basically does this: 
+
+    * Symlinks the `.zshrc` file in the repo to the `.zshrc` location in your home folder
+    * Installs Homebrew stuff from the `Brewfile`
+    * Clones the repos you work in from the `clone.sh` file
+    * Symlinks your mackup config
+    * Sources the macOS settings from the `.macos` file
+
+    If you want to skip any of these steps, just comment them out in the file. You can always run them later individually.
+
+1. Edit the [Brewfile](./Brewfile) to remove things you don't want installed, and add any that you do want installed. Do the same with the listing of Git repositories you want to clone in [clone.sh](./clone.sh), and aliases you like to use in [aliases.zsh](./aliases.zsh).
+
+1. **Homebrew** Install [Homebrew](https://brew.sh/) with the script below.
+
+    ```zsh
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+    ```
+
+    After installation, issue the following which will set up your PATH correctly.
+    ```zsh
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ```
+
+1. Run the dotfiles installer script:
 
     ```zsh
     ~/.dotfiles/fresh.sh
     ```
 
-1. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
+1. **NVM** If you use [Node Version Manager](https://github.com/nvm-sh/nvm), install it with the script below. The installer will update your `.zshrc` so ZSH can find the binaries. Reminder you'll still need to install a version of Node.js with, e.g. `nvm install 14`, after nvm is installed.
+
+    ```zsh
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    ```
+
+1. Sign into Dropbox and sync files, alternatively sync from iCloud of whatever provider you use.
+1. **Mackup** Once Dropbox has synced, assuming you have previously backed up with `mackup` on your old computer, restore preferences by running `mackup restore`.
 1. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
-
-> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
 
 ## Your Own Dotfiles
 
